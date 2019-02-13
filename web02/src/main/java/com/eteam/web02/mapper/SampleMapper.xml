@@ -4,7 +4,11 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <mapper namespace="com.eteam.web02.mapper.SampleMapper"> 
 	<select id="selectSampleList" resultType="com.eteam.web02.vo.Sample"> 
- 	 
+ 	 	SELECT 
+ 	 		sample_id as sampleId,
+ 	 		sample_name as sampleName
+ 	 	FROM
+ 	 		sample
  	</select> 
  	<select id="selectSampleOne" resultType="com.eteam.web02.vo.Sample"> 
  	 
