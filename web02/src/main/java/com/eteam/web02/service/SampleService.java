@@ -26,8 +26,12 @@ public class SampleService {
  		return list; 
  	} 
  	 
- 	public List<Sample> getSampleOne() { 
- 		return null; 
+ 	public Sample getSampleOne(Sample sample) {  
+ 		//Sample 타입의 sample변수를 참조변수 SampleMapper 내에 selectSampleOne()호출시 메서드에 입력 실행한다.
+ 		//Sample데이터 타입 주소를 가저온다
+ 		//Sample 타입으로된 listUpdate 참조변수에 담아준다.
+ 		Sample listUpdate = sampleMapper.selectSampleOne(sample);
+ 		return listUpdate; 
  	} 
  	 
  	public int addSample(Sample sampleName) { 
@@ -44,7 +48,10 @@ public class SampleService {
  		return 0; 
  	} 
  	 
- 	public int modifySample(Sample sample) { 
+ 	public int modifySample(Sample sample) {
+ 		//참조변수 sampleMapper 내에 updateSample메서드 호출시
+ 		//sample 타입으로된 sample 참조변수를 입력하여 실행한다.
+ 		sampleMapper.updateSample(sample);
  		return 0; 
  	} 
 } 

@@ -14,5 +14,9 @@ public interface SampleMapper {
 	ArrayList<Sample> selectSampleList();
 	//리스트 삭제
 	void deleteSample(Sample sample);
+	//수정화면
+ 	Sample selectSampleOne(Sample sample);
+ 	//수정처리
+ 	int updateSample(Sample sample);
 	
 }

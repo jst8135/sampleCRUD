@@ -11,7 +11,11 @@
  	 		sample
  	</select> 
  	<select id="selectSampleOne" resultType="com.eteam.web02.vo.Sample"> 
- 	 
+ 	 	SELECT 
+ 	 		sample_id as sampleId,
+ 	 		sample_name as sampleName
+ 	 	FROM sample
+ 	 	WHERE sample_id=#{sampleId}
  	</select> 
  	<insert id="insertSample" parameterType="com.eteam.web02.vo.Sample"> 
  		INSERT INTO sample( 
@@ -27,7 +31,7 @@
  	</delete> 
  	<update id="updateSample" parameterType="com.eteam.web02.vo.Sample"> 
  		UPDATE sample 
- 		SET 
- 		 
+		SET sample_name=#{sampleName}
+		WHERE sample_id=#{sampleId} 
  	</update> 
 </mapper> 

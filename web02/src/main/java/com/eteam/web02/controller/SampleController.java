@@ -60,10 +60,33 @@ public class SampleController {
  		sample.setSampleId(sampleId);
  		//sampleService객체내에 removeSample매서드 실행시 참조변수 sample
  		sampleService.removeSample(sample);
- 		
  		return "redirect:/sampleList";
  	}
  	// 5. 수정 폼 
+ 	@GetMapping("sampleUpdate")
+ 	public String sampleUpdate(@RequestParam(value="sampleId") int sampleId, Model model) {
+ 		System.out.println("Request : /sampleUpdate : 수정 화면 ");
+ 		//sample객체내에 setSampleId 메서드 호출시 변수 sampleId입력 실행한다.
+ 		sample.setSampleId(sampleId);
+ 		//sampleService 객체내에 getSampleOne메서드 호출시 참조변수 sample입력 실행한다
+ 		//리턴된값을 Sample 타입으로된 listUpdate 참조변수에 담아준다.
+ 		Sample listUpdate = sampleService.getSampleOne(sample);
+ 		//model객체내에 addAttribute메서드 "listUpdate" <--listUpdate담아준다.
+ 		model.addAttribute("listUpdate", listUpdate);
+ 		return "/sampleUpdate";
+ 	}
  	 
  	// 6. 수정 액션 
+ 	@PostMapping("sampleUpdate")
+ 	public String sampleUpdate(@RequestParam(value="sampleId") int sampleId, @RequestParam(value="sampleName") String sampleName) {
+ 		System.out.println("Request : /sampleUpdate : 수정 처리 ");
+ 		//sample 객체내에 setSampleId메서드 호출시 변수 sampleId입력 실행한다.
+ 		sample.setSampleId(sampleId);
+ 		//sample 객체내에 setSampleName메서드 호출시 변수 sampleName입력 실행한다.
+ 		sample.setSampleName(sampleName);
+ 		//sampleService 객체내에 modifySample매서드실행시 참조변수 sample입력 실행한다.
+ 		sampleService.modifySample(sample);
+ 		
+ 		return "redirect:/sampleList";
+ 	}
 } 

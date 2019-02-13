@@ -1,0 +1,10 @@
+<html xmlns:th= "http://www.thymeleaf.org">
+
+<div th:each="s : ${listUpdate}"> 
+<form action = "/sampleUpdate" method="post"> 
+<!-- Sample객체 내 세팅된 변수 sampleId, sampleName에 복사된 값 출력 --> 
+	<input type="text" name="sampleId" th:value="${s.sampleId}" readonly> 
+	<input type="text" name="sampleName" th:value="${s.sampleName}"> 
+	<input type="submit" value="이름수정"> 
+</form> 
+</div> 
